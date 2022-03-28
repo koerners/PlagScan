@@ -13,7 +13,7 @@ def get_graphs(directory):
                 if subgraph.is_file():
                     new_graph = nx.Graph(nx.drawing.nx_pydot.read_dot(subgraph.path))
                     graphs[filename] = nx.compose(graphs[filename], new_graph )
-        fix_labels(graphs[filename])
+            fix_labels(graphs[filename])
 
     return graphs
 
