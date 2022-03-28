@@ -4,3 +4,4 @@ pydot
 graphviz
 scipy
 autopep8
+rich
