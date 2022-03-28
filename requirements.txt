@@ -1,0 +1,5 @@
+networkx
+pydot
+graphviz
+pathos
+pygraphviz
