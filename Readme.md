@@ -1,4 +1,4 @@
-# Software Plagiarism Detector based on Graphs
+# Software Plagiarism Detector Based on Graphs
 
 ## Easy usage
 
