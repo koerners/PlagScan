@@ -27,6 +27,7 @@ def analyze(GRAPHS):
             table.add_row(a, b, ":red_circle:")
         else:
             table.add_row(a, b, ":green_circle:")
+    console.print(table)
     return table
 
 
@@ -42,7 +43,8 @@ if __name__ == "__main__":
             "[cyan]Analyzing...", start=False, total=1)
 
         if commandline_args.parse:
-            parseFiles('c')
+            parseFiles(commandline_args.language,
+                       commandline_args.nr_of_processes)
             progress.update(task_id=task_parse, completed=1)
         progress.start_task(task_load)
         graphs = get_graphs('graphs')
@@ -50,4 +52,3 @@ if __name__ == "__main__":
         progress.start_task(task_analyze)
         table = analyze(graphs)
         progress.update(task_id=task_analyze, completed=1)
-        console.print(table)
