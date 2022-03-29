@@ -13,7 +13,7 @@ if __name__ == "__main__":
     console = Console()
 
     console.print(
-        Padding(Panel.fit(Text("Your submissions are beeing processed. Depending on the number of submissions and their complexity this may take some time. \nConsider using the --Processes commandline option to improve speed.", justify="center")), (1, 1)))
+        Padding(Panel.fit(Text("Your submissions are beeing processed. \n Depending on the number of submissions and their complexity this may take some time. \nConsider using the --Processes commandline option to improve speed.", justify="center")), (1, 0)))
 
     try:
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
             table = analyze(graphs)
             progress.update(task_id=task_analyze, completed=1)
             progress.stop()
-            console.print(Padding(table, (1, 1)))
+            console.print(Padding(table, (1, 0)))
             with open(f"submissions/{commandline_args.output}", "wt") as report_file:
                 console2 = Console(file=report_file)
                 console2.print(table)
