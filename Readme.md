@@ -3,7 +3,7 @@
 ## Easy usage
 
 1. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed
-2. Create a folder with the submissions in it e.g., ``mkdir submissions``. Inside that folder put in the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
+2. ``cd`` into the folder with the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
 
     ```text
     .
@@ -25,19 +25,19 @@
         └── 089679345_F_A150
             └── f.c
     ```
-4. Move into the folder: ``cd submissions``
-3. Run
+
+3. Inside this folder run:
 
    ```bash
    docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest
    ```
 
-   with the following options:  
+   with the following arguments:  
 
     ```text
     usage: [-h] -l LANGUAGE [-p PROCESSES] [-o OUTPUT] [-sp SKIPPARSE] [-v VERBOSE]
 
-    optional arguments:
+    arguments:
     -h, --help            show this help message and exit
     -l LANGUAGE, --Language LANGUAGE
                             Programming language that is beeing used. Options: c, python
@@ -51,7 +51,13 @@
                             [DEBUG] Skip code parsing [y/n] (default: n).
     ```
 
-    Note: this will download the complete Docker image if not found on the system.
+    Example usage for the language "C" that will use 4 threads:
+
+    ```bash
+   docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest --Language c -Processes 4 
+   ```
+
+    Note: for the first run this will download the Docker image which is about 2.5 GB in size.
 
 ## Build locally
 
