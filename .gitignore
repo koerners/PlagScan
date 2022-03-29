@@ -1,3 +1,4 @@
 *.dot
 submissions/
 *.pyc
+intermediate/

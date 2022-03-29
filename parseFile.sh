@@ -1,13 +1,24 @@
 #!/bin/bash
 
+rm -rf graphs
+rm -rf intermediate
+
 mkdir graphs
+mkdir intermediate
+
 cd submissions
-pwd
+
+parse() {
+    joern-parse --language "$1" --output "../intermediate/$2.bin" "$2"
+    joern-export --out "../graphs/$2/" --repr pdg "../intermediate/$2.bin"
+}
+
+
 for d in */ ; do
     DIR=${d%/}
     echo $DIR
-    mkdir intermediate
-    joern-parse --language "$1" --output "intermediate/$DIR.bin" "$DIR"
-    joern-export --out "../graphs/$DIR/" --repr pdg "intermediate/$DIR.bin"
-    rm -rf intermediate
+    parse $1 $DIR
 done
+
+cd ..
+rm -rf intermediate
