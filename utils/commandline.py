@@ -10,7 +10,7 @@ class Commandline:
             "-l",
             "--Language",
             required=True,
-            help="Programming language that is beeing parsed. \
+            help="Programming language that is beeing used. \
             Options: c, python",
         )
 
@@ -21,11 +21,11 @@ class Commandline:
         _parser.add_argument("-o", "--Output",
                              help="Outputfile (default: report.md).")
 
-        _parser.add_argument("-sp", "--SkipParse",
-                             help="[DEBUG] Skip code parsing [y/n] (Default: n).")
-
         _parser.add_argument("-v", "--Verbose",
-                             help="Print [all] results or only [suspicious] (default: all).")
+                             help="Print [all] results or only [suspicious] (default: suspicious).")
+
+        _parser.add_argument("-sp", "--SkipParse",
+                             help="[DEBUG] Skip code parsing [y/n] (default: n).")
 
         # Read arguments from command line
         _args = _parser.parse_args()
@@ -35,7 +35,7 @@ class Commandline:
         self._language = _args.Language
         self._parse = False if _args.SkipParse == "y" else True
         self._output = _args.Output if _args.Output else "report.md"
-        self._verbose = False if _args.Verbose == "suspicious" else True
+        self._verbose = True if _args.Verbose == "all" else False
 
     @property
     def nr_of_processes(self) -> int:

@@ -36,19 +36,18 @@
 
     ```text
     usage: main.py [-h] -l LANGUAGE [-p PROCESSES] [-o OUTPUT] [-sp SKIPPARSE] [-v VERBOSE]
-
-    optional arguments:
+    
     -h, --help            show this help message and exit
     -l LANGUAGE, --Language LANGUAGE
-                            Programming language that is beeing parsed. Options: c, python
+                            Programming language that is beeing used. Options: c, python
     -p PROCESSES, --Processes PROCESSES
                             Number of processes used.
     -o OUTPUT, --Output OUTPUT
                             Outputfile (default: report.md).
-    -sp SKIPPARSE, --SkipParse SKIPPARSE
-                            [DEBUG] Skip code parsing [y/n] (Default: n).
     -v VERBOSE, --Verbose VERBOSE
-                            Print [all] results or only [suspicious] (default: all).
+                            Print [all] results or only [suspicious] (default: suspicious).
+    -sp SKIPPARSE, --SkipParse SKIPPARSE
+                            [DEBUG] Skip code parsing [y/n] (default: n).
     ```
 
     Note: this will download the complete Docker image if not found on the system.
