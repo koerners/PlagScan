@@ -3,7 +3,7 @@
 ## Easy usage
 
 1. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed
-2. Create a new folder with the submissions in it e.g., ``mkdir submissions``. Inside that folder put in the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
+2. Create a folder with the submissions in it e.g., ``mkdir submissions``. Inside that folder put in the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
 
     ```text
     .
@@ -25,11 +25,11 @@
         └── 089679345_F_A150
             └── f.c
     ```
-
+4. Move into the folder: ``cd submissions``
 3. Run
 
    ```bash
-   docker run --rm -it -v {ABSOLUTE PATH TO THE SUBMISSION FOLDER CREATED IN STEP 2}:/app/submissions/ plagscan:latest
+   docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest
    ```
 
    with the following options:  
