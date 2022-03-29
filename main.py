@@ -1,3 +1,4 @@
+from datetime import datetime
 import itertools
 from utils.commandline import Commandline
 from utils.files import parseFiles
@@ -27,7 +28,6 @@ def analyze(GRAPHS):
             table.add_row(a, b, ":red_circle:")
         else:
             table.add_row(a, b, ":green_circle:")
-    console.print(table)
     return table
 
 
@@ -52,3 +52,9 @@ if __name__ == "__main__":
         progress.start_task(task_analyze)
         table = analyze(graphs)
         progress.update(task_id=task_analyze, completed=1)
+        progress.stop()
+        console.print(table)
+        with open("submissions/report.md", "wt") as report_file:
+            console2 = Console(file=report_file)
+            console2.print(table)
+            #console.rule(f"Report Generated {datetime.now().ctime()}")
