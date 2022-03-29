@@ -35,7 +35,7 @@ if __name__ == "__main__":
             graphs = get_graphs('graphs')
             progress.update(task_id=task_load, completed=1)
             progress.start_task(task_analyze)
-            table = analyze(graphs)
+            table = analyze(graphs, commandline_args.verbose)
             progress.update(task_id=task_analyze, completed=1)
             progress.stop()
             console.print(Padding(table, (1, 0)))

@@ -4,7 +4,7 @@ import itertools
 from utils.graphs import check_plagiarism
 
 
-def analyze(graphs):
+def analyze(graphs, log_all):
 
     permutations = list(itertools.combinations(graphs.keys(), 2))
 
@@ -19,6 +19,6 @@ def analyze(graphs):
 
         if check_plagiarism(graph_a, graph_b):
             table.add_row(a, b, ":red_circle:")
-        else:
+        elif log_all:
             table.add_row(a, b, ":green_circle:")
     return table
