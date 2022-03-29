@@ -42,5 +42,6 @@ if __name__ == "__main__":
             with open(f"submissions/{commandline_args.output}", "wt") as report_file:
                 console2 = Console(file=report_file)
                 console2.print(table)
+                console.log(f"[green]Report saved as {commandline_args.output}")
     except Exception as e:
         console.log(e, style="bold red")
