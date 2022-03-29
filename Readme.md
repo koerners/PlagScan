@@ -1,4 +1,4 @@
-# Software Plagiarism Detector Based on Graphs
+# Software Plagiarism Detection Based on Graphs
 
 ## Easy usage
 
@@ -35,8 +35,9 @@
    with the following options:  
 
     ```text
-    usage: main.py [-h] -l LANGUAGE [-p PROCESSES] [-o OUTPUT] [-sp SKIPPARSE] [-v VERBOSE]
-    
+    usage: [-h] -l LANGUAGE [-p PROCESSES] [-o OUTPUT] [-sp SKIPPARSE] [-v VERBOSE]
+
+    optional arguments:
     -h, --help            show this help message and exit
     -l LANGUAGE, --Language LANGUAGE
                             Programming language that is beeing used. Options: c, python
