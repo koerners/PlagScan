@@ -19,8 +19,8 @@ def analyze(graphs):
     table.add_column("Submission A")
     table.add_column("Submission B")
     table.add_column("Plagiarism Check")
-    for graphs in permutations:
-        a, b = graphs
+    for perm in permutations:
+        a, b = perm
         graph_a = graphs.get(a)
         graph_b = graphs.get(b)
 
@@ -42,24 +42,22 @@ if __name__ == "__main__":
         task_analyze = progress.add_task(
             "[cyan]Analyzing...", start=False, total=1)
 
-        try:
-            if commandline_args.parse:
-                error = parseFiles(commandline_args.language,
-                        commandline_args.nr_of_processes)
-                if error:
-                    console.print(error, style="red")
-                progress.update(task_id=task_parse, completed=1)
-            progress.start_task(task_load)
-            graphs = get_graphs('graphs')
-            progress.update(task_id=task_load, completed=1)
-            progress.start_task(task_analyze)
-            table = analyze(graphs)
-            progress.update(task_id=task_analyze, completed=1)
-            progress.stop()
-            console.print(table)
-            with open(f"submissions/{commandline_args.output}", "wt") as report_file:
-                console2 = Console(file=report_file)
-                console2.print(table)
+    
+        if commandline_args.parse:
+            error = parseFiles(commandline_args.language,
+                    commandline_args.nr_of_processes)
+            if error:
+                console.print(error, style="red")
+            progress.update(task_id=task_parse, completed=1)
+        progress.start_task(task_load)
+        graphs = get_graphs('graphs')
+        progress.update(task_id=task_load, completed=1)
+        progress.start_task(task_analyze)
+        table = analyze(graphs)
+        progress.update(task_id=task_analyze, completed=1)
+        progress.stop()
+        console.print(table)
+        with open(f"submissions/{commandline_args.output}", "wt") as report_file:
+            console2 = Console(file=report_file)
+            console2.print(table)
 
-        except Exception as e:
-            console.print(e, style="red")

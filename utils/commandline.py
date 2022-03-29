@@ -21,16 +21,16 @@ class Commandline:
         _parser.add_argument("-o", "--Output",
                              help="Outputfile (default: report.md)")
 
-        _parser.add_argument("-j", "--Parse",
-                             help="Parse sourcecode [y]/n")
+        _parser.add_argument("-sp", "--SkipParse",
+                             help="[DEBUG] Skip code parsing (Default: n).")
 
         # Read arguments from command line
         _args = _parser.parse_args()
 
         self._nr_of_processes = int(
-            _args.Processes) if _args.Processes else None
+            _args.Processes) if _args.Processes else 1
         self._language = _args.Language
-        self._parse = True if _args.Parse == "y" else False
+        self._parse = False if _args.SkipParse == "y" else True
         self._output = _args.Output if _args.Output else "report.md"
 
     @property
