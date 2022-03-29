@@ -6,5 +6,6 @@ def parseFiles(language='c', processes=4):
                         stdout=subprocess.PIPE, 
                         stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
-    return stderr
-
+    if stderr:
+        raise Exception(
+            "Error when reading the submissions. Please make sure the folder is mounted correctly.")
