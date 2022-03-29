@@ -18,6 +18,9 @@ class Commandline:
         _parser.add_argument("-p", "--Processes",
                              help="Number of processes used")
 
+        _parser.add_argument("-o", "--Output",
+                             help="Outputfile (default: report.md)")
+
         _parser.add_argument("-j", "--Parse",
                              help="Parse sourcecode [y]/n")
 
@@ -28,6 +31,7 @@ class Commandline:
             _args.Processes) if _args.Processes else None
         self._language = _args.Language
         self._parse = True if _args.Parse == "y" else False
+        self._output = _args.Output if _args.Output else "report.md"
 
     @property
     def nr_of_processes(self) -> int:
@@ -40,3 +44,7 @@ class Commandline:
     @property
     def parse(self) -> int:
         return self._parse
+
+    @property
+    def output(self) -> str:
+        return self._output

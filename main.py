@@ -10,9 +10,9 @@ from rich.table import Table
 console = Console()
 
 
-def analyze(GRAPHS):
+def analyze(graphs):
 
-    permutations = list(itertools.combinations(GRAPHS.keys(), 2))
+    permutations = list(itertools.combinations(graphs.keys(), 2))
 
     console.print("Scanning for plagiarisms...")
     table = Table(title="Results")
@@ -21,8 +21,8 @@ def analyze(GRAPHS):
     table.add_column("Plagiarism Check")
     for graphs in permutations:
         a, b = graphs
-        graph_a = GRAPHS.get(a)
-        graph_b = GRAPHS.get(b)
+        graph_a = graphs.get(a)
+        graph_b = graphs.get(b)
 
         if check_plagiarism(graph_a, graph_b):
             table.add_row(a, b, ":red_circle:")
@@ -54,7 +54,6 @@ if __name__ == "__main__":
         progress.update(task_id=task_analyze, completed=1)
         progress.stop()
         console.print(table)
-        with open("submissions/report.md", "wt") as report_file:
+        with open(f"submissions/{commandline_args.output}", "wt") as report_file:
             console2 = Console(file=report_file)
             console2.print(table)
-            #console.rule(f"Report Generated {datetime.now().ctime()}")
