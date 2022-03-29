@@ -35,7 +35,7 @@
    with the following options:  
 
     ```text
-    usage: main.py [-h] -l LANGUAGE [-p PROCESSES] [-o OUTPUT] [-sp SKIPPARSE] [-v VERBOSE]
+    usage: [-h] -l LANGUAGE [-p PROCESSES] [-o OUTPUT] [-sp SKIPPARSE] [-v VERBOSE]
 
     optional arguments:
     -h, --help            show this help message and exit
