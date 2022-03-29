@@ -6,11 +6,16 @@ RUN apt-get update && apt install -y default-jre wget python3 curl sudo unzip gi
 
 # python dependencies
 RUN apt install -y python3-pip 
-COPY requirements.txt /
+
+COPY . /app/
+WORKDIR /app
+
 RUN pip3 install -r requirements.txt
 
 # installing joern
 RUN wget https://github.com/joernio/joern/releases/latest/download/joern-install.sh && chmod +x ./joern-install.sh && sudo ./joern-install.sh && joern
 
-# Use bash
+# Set default to bash
 RUN ln -s bash /bin/sh.bash && mv /bin/sh.bash /bin/sh
+
+ENTRYPOINT [ "python3", "main.py" ]

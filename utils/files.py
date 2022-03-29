@@ -6,4 +6,5 @@ def parseFiles(language='c', processes=4):
                         stdout=subprocess.PIPE, 
                         stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
+    return stderr
 
