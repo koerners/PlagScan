@@ -1,5 +1,7 @@
 #!/bin/bash
 
+max_children=$3
+
 rm -rf graphs
 rm -rf intermediate
 
@@ -8,12 +10,11 @@ mkdir intermediate
 
 cd submissions
 
-parse() {
+function parse() {
     joern-parse --language "$1" --output "../intermediate/$2.bin" "$2"
     joern-export --out "../graphs/$2/" --repr pdg "../intermediate/$2.bin"
 }
 
-max_children=$3
 
 function parallel {
   "$@" &

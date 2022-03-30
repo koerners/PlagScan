@@ -57,7 +57,7 @@
    docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest --Language c --Processes 4 
    ```
 
-    Note: for the first run this will download the Docker image which is about 2.5 GB in size.
+    Note: for the first run this will download the Docker image which is about 1.6 GB in size.
 
 ## Build locally
 
@@ -66,3 +66,7 @@ To build the Image locally run:
 ```bash
 docker build --pull --rm -f "Dockerfile" -t plagscan:latest "."
 ```
+
+## Development
+
+For development it is recommended to use [Visual Studio Code Remote - Containers](https://code.visualstudio.com/docs/remote/containers) with the .devcontainer/devcontainer.json file from this repository.
