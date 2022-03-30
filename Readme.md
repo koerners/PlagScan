@@ -3,7 +3,8 @@
 ## Easy usage
 
 1. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed
-2. ``cd`` into the folder with the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
+2. Pull the PlagScan image: ``docker pull stefankoerner1/plagscan:latest``. Note that this will download about 1.6 GB and has to be done only once.
+3. ``cd`` into the folder with the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
 
     ```text
     .
@@ -26,7 +27,7 @@
             └── f.c
     ```
 
-3. Inside this folder run:
+4. Inside this folder run:
 
    ```bash
    docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest
@@ -57,7 +58,6 @@
    docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest --Language c --Processes 4 
    ```
 
-    Note: for the first run this will download the Docker image which is about 1.6 GB in size.
 
 ## Build locally
 
