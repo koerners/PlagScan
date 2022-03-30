@@ -3,7 +3,7 @@
 ## Easy usage
 
 1. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed
-2. Pull the PlagScan image: ``docker pull stefankoerner1/plagscan:latest``. Note that this will download about 1.6 GB.
+2. Pull the PlagScan image: ``docker pull stefankoerner1/plagscan``. Note that this will download about 1.6 GB.
 3. ``cd`` into the folder with the submissions that should be tested. Every submission must be in a separate subfolder. The structure should look something like this:
 
     ```text
