@@ -57,6 +57,8 @@
     ```bash
    docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest --Language c --Processes 4 
    ```
+   
+   Note: $PWD might not work on every OS. See [here](https://stackoverflow.com/questions/41485217/mount-current-directory-as-a-volume-in-docker-on-windows-10) for possible solutions or use an absolute path instead.
 
 
 ## Build locally
