@@ -56,7 +56,7 @@
     Example usage for the language "C" that will use 4 threads:
 
     ```bash
-   docker run --rm -it -v $PWD:/app/submissions/ plagscan:latest --Language c --Processes 4 
+   docker run --rm -it -v $PWD:/app/submissions/ stefankoerner1/plagscan:latest --Language c --Processes 4 
    ```
 
 
