@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-ENV TZ=Europe/Berlin
+ENV TZ=Europe/Lisbon
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # os dependencies
 RUN apt-get update && apt install -y default-jre wget python3 curl sudo unzip git
