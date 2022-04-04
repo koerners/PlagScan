@@ -1,6 +1,6 @@
 # Software Plagiarism Detection Based on Graphs
 
-## Easy use
+## Usage
 
 1. Make sure you have [Docker](https://docs.docker.com/get-docker/) installed. This repository does not need to be cloned.
 2. Pull the prebuilt PlagScan image: ``docker pull stefankoerner1/plagscan:latest``. Note that this will download about 1.6 GB.
