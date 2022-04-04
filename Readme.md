@@ -62,7 +62,7 @@
 
 ## Build locally
 
-To build the Image locally run:
+To build the image locally run:
 
 ```bash
 docker build --pull --rm -f "Dockerfile" -t plagscan:latest "."
