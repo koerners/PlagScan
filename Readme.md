@@ -37,7 +37,7 @@
 
    with the following arguments:
 
-   ```bash
+   ```
    usage: [-h] -l LANGUAGE [-t THREADS] [-o OUTPUT] [-v VERBOSE]
 
    arguments:
