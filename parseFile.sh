@@ -1,6 +1,6 @@
 #!/bin/bash
 
-max_children=$3
+max_children=$2
 
 rm -rf graphs
 rm -rf intermediate
