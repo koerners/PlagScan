@@ -1,7 +1,7 @@
-from rich.table import Table
 import itertools
 
-from utils.graphs import check_plagiarism
+from networkx.algorithms import isomorphism
+from rich.table import Table
 
 
 def analyze(graphs, log_all):
@@ -22,3 +22,10 @@ def analyze(graphs, log_all):
         elif log_all:
             table.add_row(a, b, ":green_circle:")
     return table
+
+
+def check_plagiarism(graph_a, graph_b):
+    # Some more sophisticated logic could be used here.
+    # However, this simple check has proven to work really well.
+    GM = isomorphism.GraphMatcher(graph_a, graph_b)
+    return GM.is_isomorphic()

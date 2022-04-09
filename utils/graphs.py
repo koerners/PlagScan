@@ -1,7 +1,9 @@
 import os
+
 import networkx as nx
-from utils.iso import fix_labels
-from networkx.algorithms import isomorphism
+
+from utils.fix_labels import fix_labels
+
 
 def get_graphs(directory):
     graphs = {}
@@ -14,14 +16,7 @@ def get_graphs(directory):
                 if subgraph.is_file():
                     new_graph = nx.Graph(
                         nx.drawing.nx_pydot.read_dot(subgraph.path))
-                    graphs[filename] = nx.compose(graphs[filename], new_graph )
-            fix_labels(graphs[filename])
+                    graphs[filename] = nx.compose(graphs[filename], new_graph)
+            fix_labels(graphs[filename])  # to improve analyzing speed
 
     return graphs
-
-
-def check_plagiarism(graph_a, graph_b):
-    GM = isomorphism.GraphMatcher(graph_a, graph_b)
-    return GM.is_isomorphic()
-
-    

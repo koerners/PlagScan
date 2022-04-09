@@ -1,19 +1,21 @@
 
+from rich.console import Console
+from rich.padding import Padding
+from rich.panel import Panel
+from rich.progress import Progress, SpinnerColumn, TimeElapsedColumn
+from rich.text import Text
+
 from utils.analyze import analyze
 from utils.commandline import Commandline
-from utils.files import parseFiles
+from utils.files import parse_files
 from utils.graphs import get_graphs
-from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TimeElapsedColumn
-from rich.panel import Panel
-from rich.padding import Padding
-from rich.text import Text
+
 if __name__ == "__main__":
     commandline_args = Commandline()
     console = Console()
 
     console.print(
-        Padding(Panel.fit(Text("Your submissions are beeing processed. \n Depending on the number of submissions and their complexity this may take some time. \nConsider using the --Processes commandline option to improve speed.", justify="center")), (1, 0)))
+        Padding(Panel.fit(Text("Your submissions are beeing processed. \n Depending on the number of submissions and their complexity this may take some time.", justify="center")), (1, 0)))
 
     try:
 
@@ -27,8 +29,8 @@ if __name__ == "__main__":
                 "[cyan]Analyzing...", start=False, total=1)
 
             if commandline_args.parse:
-                parseFiles(commandline_args.language,
-                           commandline_args.nr_of_processes)
+                parse_files(commandline_args.language,
+                            commandline_args.nr_of_processes)
 
                 progress.update(task_id=task_parse, completed=1)
             progress.start_task(task_load)
@@ -42,6 +44,7 @@ if __name__ == "__main__":
             with open(f"submissions/{commandline_args.output}", "wt") as report_file:
                 console2 = Console(file=report_file)
                 console2.print(table)
-                console.log(f"[green]Report saved as {commandline_args.output}")
+                console.log(
+                    f"[green]Report saved as {commandline_args.output}")
     except Exception as e:
         console.log(e, style="bold red")
