@@ -1,8 +1,8 @@
 import subprocess
 
 
-def parse_files(language='c', processes=4):
-    process = subprocess.Popen(['sh', 'parseFile.sh', str(language), str(processes)],
+def parse_files(language, threads):
+    process = subprocess.Popen(['sh', 'parseFile.sh', str(language), str(threads)],
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()

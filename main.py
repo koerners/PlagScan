@@ -28,11 +28,10 @@ if __name__ == "__main__":
             task_analyze = progress.add_task(
                 "[cyan]Analyzing...", start=False, total=1)
 
-            if commandline_args.parse:
-                parse_files(commandline_args.language,
-                            commandline_args.nr_of_processes)
+            parse_files(commandline_args.language,
+                        commandline_args.nr_of_threads)
 
-                progress.update(task_id=task_parse, completed=1)
+            progress.update(task_id=task_parse, completed=1)
             progress.start_task(task_load)
             graphs = get_graphs('graphs')
             progress.update(task_id=task_load, completed=1)

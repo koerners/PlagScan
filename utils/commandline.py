@@ -15,8 +15,8 @@ class Commandline:
         )
 
         # Adding optional argument
-        _parser.add_argument("-p", "--Processes",
-                             help="Number of processes used.")
+        _parser.add_argument("-t", "--Threads",
+                             help="Number of threads used (default: 4).")
 
         _parser.add_argument("-o", "--Output",
                              help="Outputfile (default: report.md).")
@@ -24,30 +24,22 @@ class Commandline:
         _parser.add_argument("-v", "--Verbose",
                              help="Print [all] results or only [suspicious] (default: suspicious).")
 
-        _parser.add_argument("-sp", "--SkipParse",
-                             help="[DEBUG] Skip code parsing [y/n] (default: n).")
-
         # Read arguments from command line
         _args = _parser.parse_args()
 
-        self._nr_of_processes = int(
-            _args.Processes) if _args.Processes else 1
+        self._nr_of_threads = int(
+            _args.Threads) if _args.Threads else 4
         self._language = _args.Language
-        self._parse = False if _args.SkipParse == "y" else True
         self._output = _args.Output if _args.Output else "report.md"
         self._verbose = True if _args.Verbose == "all" else False
 
     @property
-    def nr_of_processes(self) -> int:
-        return self._nr_of_processes
+    def nr_of_threads(self) -> int:
+        return self._nr_of_threads
 
     @property
     def language(self) -> int:
         return self._language
-
-    @property
-    def parse(self) -> int:
-        return self._parse
 
     @property
     def output(self) -> str:
