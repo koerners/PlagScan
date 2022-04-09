@@ -18,11 +18,10 @@ if __name__ == "__main__":
         Padding(Panel.fit(Text("Your submissions are beeing processed. \n Depending on the number of submissions and their complexity this may take some time.", justify="center")), (1, 0)))
 
     try:
-
+        
         with Progress("[progress.description]{task.description}", SpinnerColumn(), TimeElapsedColumn()) as progress:
-            if commandline_args.parse:
-                task_parse = progress.add_task(
-                    "[red]Parsing source code...", start=True, total=1)
+            task_parse = progress.add_task(
+                "[red]Parsing source code...", start=True, total=1)
             task_load = progress.add_task(
                 "[green]Loading graphs...", start=False, total=1)
             task_analyze = progress.add_task(
