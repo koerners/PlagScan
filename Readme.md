@@ -47,7 +47,7 @@
        -t THREADS, --Threads THREADS
                                Number of threads used (default: 4).
        -o OUTPUT, --Output OUTPUT
-                               Outputfile (default: report.md).
+                               CSV that contains all suspicious combinations (default: report.csv).
        -v VERBOSE, --Verbose VERBOSE
                                Print [all] results or only [suspicious] (default: suspicious).
    ```

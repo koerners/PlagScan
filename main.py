@@ -1,3 +1,4 @@
+import csv
 
 from rich.console import Console
 from rich.padding import Padding
@@ -18,7 +19,7 @@ if __name__ == "__main__":
         Padding(Panel.fit(Text("Your submissions are beeing processed. \n Depending on the number of submissions and their complexity this may take some time.", justify="center")), (1, 0)))
 
     try:
-        
+
         with Progress("[progress.description]{task.description}", SpinnerColumn(), TimeElapsedColumn()) as progress:
             task_parse = progress.add_task(
                 "[red]Parsing source code...", start=True, total=1)
@@ -35,13 +36,13 @@ if __name__ == "__main__":
             graphs = get_graphs('graphs')
             progress.update(task_id=task_load, completed=1)
             progress.start_task(task_analyze)
-            table = analyze(graphs, commandline_args.verbose)
+            table, report = analyze(graphs, commandline_args.verbose)
             progress.update(task_id=task_analyze, completed=1)
             progress.stop()
             console.print(Padding(table, (1, 0)))
             with open(f"submissions/{commandline_args.output}", "wt") as report_file:
-                console2 = Console(file=report_file)
-                console2.print(table)
+                writer = csv.writer(report_file)
+                writer.writerows(report)
                 console.log(
                     f"[green]Report saved as {commandline_args.output}")
     except Exception as e:

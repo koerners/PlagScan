@@ -19,7 +19,7 @@ class Commandline:
                              help="Number of threads used (default: 4).")
 
         _parser.add_argument("-o", "--Output",
-                             help="Outputfile (default: report.md).")
+                             help="CSV that contains all suspicious combinations (default: report.csv).")
 
         _parser.add_argument("-v", "--Verbose",
                              help="Print [all] results or only [suspicious] (default: suspicious).")
@@ -30,7 +30,7 @@ class Commandline:
         self._nr_of_threads = int(
             _args.Threads) if _args.Threads else 4
         self._language = _args.Language
-        self._output = _args.Output if _args.Output else "report.md"
+        self._output = _args.Output if _args.Output else "report.csv"
         self._verbose = True if _args.Verbose == "all" else False
 
     @property
