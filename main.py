@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
             progress.update(task_id=task_parse, completed=1)
             progress.start_task(task_load)
-            graphs = get_graphs('graphs')
+            graphs = get_graphs('graphs', console)
             progress.update(task_id=task_load, completed=1)
             progress.start_task(task_analyze)
             table, report = analyze(graphs, commandline_args.verbose)

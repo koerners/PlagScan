@@ -28,11 +28,15 @@ def analyze(graphs, log_all):
         graph_a = graphs.get(a)
         graph_b = graphs.get(b)
 
+        if graph_a is None or graph_b is None:
+            continue
+
         if check_plagiarism(graph_a, graph_b):
             table.add_row(a, b, ":red_circle:")
             results.append([a, b])
         elif log_all:
             table.add_row(a, b, ":green_circle:")
+            
     return table, results
 
 
