@@ -13,7 +13,7 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt
 
 # installing joern
-RUN wget https://github.com/joernio/joern/releases/download/v1.1.668/joern-install.sh && chmod +x ./joern-install.sh && sudo ./joern-install.sh && joern
+RUN wget https://github.com/joernio/joern/releases/download/v1.1.779/joern-install.sh && chmod +x ./joern-install.sh && sudo ./joern-install.sh && joern
 
 # Set default to bash
 RUN ln -s bash /bin/sh.bash && mv /bin/sh.bash /bin/sh
