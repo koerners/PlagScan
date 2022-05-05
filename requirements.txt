@@ -1,7 +1,7 @@
-numpy
-networkx
-pydot
-graphviz
-scipy
-autopep8
-rich
+autopep8==1.6.0
+graphviz==0.20
+networkx==2.8
+numpy==1.22.3
+pydot==1.4.2
+rich==12.3.0
+scipy==1.8.0
