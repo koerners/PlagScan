@@ -1,4 +1,4 @@
-# Software Plagiarism Detection Based on [Code Property Graphs](https://docs.joern.io/code-property-graph)
+# Software Plagiarism Detection Based on [Program Dependence Graphs](https://docs.joern.io/code-property-graph)
 
 ## Usage
 
